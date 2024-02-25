@@ -30,9 +30,8 @@ def frequency_table(ciphertext):
     trigram_counter.update(Counter(trigrams))
     print("Trigrams: " + str(trigram_counter.most_common()) + "\n")
 
-
 if __name__ == "__main__":
-    ciphertext = load_ciphertext("monoalphabetic.txt")
+    ciphertext = load_ciphertext("1-monoalphabetic/monoalphabetic.txt")
     # plaintext = "_"*len(ciphertext)
     plaintext = ["_"*(len(ciphertext[0])-1)]*len(ciphertext)
     
@@ -110,5 +109,6 @@ if __name__ == "__main__":
                 plaintext[line_index] = plaintext[line_index][0:letter_index] + "j" + plaintext[line_index][letter_index+1:]
             elif (letter == "S"):
                 plaintext[line_index] = plaintext[line_index][0:letter_index] + "z" + plaintext[line_index][letter_index+1:]
+        
         print(plaintext[line_index])
         print(ciphertext[line_index])
